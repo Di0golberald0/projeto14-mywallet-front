@@ -13,12 +13,12 @@ function SignIn() {
     e.preventDefault();
     const body = { email, password };
     try {
-      const { data } = await axios.post('http://localhost:5000/login', body);
+      const { data } = await axios.post('http://localhost:5000/sign-in', body);
 
       setUser(data);
       navigator('/transfers');
     } catch (error) {
-      console.error('Deu erro ao fazer o login');
+      console.error('Erro ');
     }
   }
 

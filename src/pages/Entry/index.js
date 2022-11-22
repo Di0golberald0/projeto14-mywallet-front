@@ -22,6 +22,11 @@ export default function Entry() {
         headers: { Authorization: `Bearer ${user}` }
       };
 
+      if(value <= 0) {
+        alert('Valor precisa ser positivo');
+        return;
+      }
+      
       try {
         await axios.post('http://localhost:5000/transfer', body, headers);
         alert('Nova entrada adicionada');

@@ -29,7 +29,7 @@ export default function Transfers() {
   function showTransfers() {
     return transfersList.map((t, index) => (
       <div key={index} style={t.type === 'entry' ? { color: 'green' } : { color: 'red' }}>
-        {t.createAt} | {t.description} | {t.value}
+       {t.description}  {t.value}
       </div>
     ));
   }
@@ -52,7 +52,7 @@ export default function Transfers() {
   
   return (
     <div className="">
-      <p>Olá {user.name}</p>
+      <p>Olá</p>
       <Link to="/"> Sair </Link>
       <div style={{ backgroundColor: 'white', width: 200, height: 250 }}>
         {transfersList.length > 0 ? (

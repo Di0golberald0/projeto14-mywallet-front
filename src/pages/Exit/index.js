@@ -22,6 +22,11 @@ export default function Exit() {
         headers: { Authorization: `Bearer ${user}` }
       };
 
+      if(value >= 0) {
+        alert('Valor precisa ser negativo');
+        return;
+      }
+      
       try {
         await axios.post('http://localhost:5000/transfer', body, headers);
         alert('Nova saída adicionada');

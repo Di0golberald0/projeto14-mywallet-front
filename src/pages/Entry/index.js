@@ -19,13 +19,13 @@ export default function Entry() {
       };
 
       const headers = {
-        headers: { Authorization: `Bearer ${user.token}` }
+        headers: { Authorization: `Bearer ${user}` }
       };
 
       try {
         await axios.post('http://localhost:5000/transfer', body, headers);
         alert('Nova entrada adicionada');
-        navigator('/transfer');
+        navigator('/transfers');
       } catch (error) {
         alert('Erro ao enviar nova entrada');
         console.log(error.response);

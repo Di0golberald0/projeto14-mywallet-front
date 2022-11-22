@@ -6,13 +6,13 @@ import UserContext from '../../contexts/UserContext';
 export default function Transfers() {
   const { user } = useContext(UserContext);
   const [transfersList, setTransfersList] = useState([]);
-  
+  console.log(user)
   useEffect(() => {
     async function getTransfersList() {
       try {
         const { data } = await axios.get('http://localhost:5000/transfer', {
           headers: {
-            Authorization: `Bearer ${user.token}`
+            Authorization: `Bearer ${user}`
           }
         });
         console.log(data);
@@ -24,13 +24,13 @@ export default function Transfers() {
     }
   
     getTransfersList();
-  }, []);
+  }, [user]);
   
   function showTransfers() {
     return transfersList.map((t, index) => (
-      <p key={index} style={t.type === 'entry' ? { color: 'green' } : { color: 'red' }}>
+      <div key={index} style={t.type === 'entry' ? { color: 'green' } : { color: 'red' }}>
         {t.createAt} | {t.description} | {t.value}
-      </p>
+      </div>
     ));
   }
   
@@ -56,10 +56,10 @@ export default function Transfers() {
       <Link to="/"> Sair </Link>
       <div style={{ backgroundColor: 'white', width: 200, height: 250 }}>
         {transfersList.length > 0 ? (
-          <p style={{ color: 'gray', fontSize: 12 }}>
+          <div style={{ color: 'gray', fontSize: 12 }}>
             Lista de transações
-            <p>{showTransfers()}</p>
-          </p>
+            <span>{showTransfers()}</span>
+          </div>
         ) : (
           <span style={{ color: 'gray', fontSize: 12 }}>
             Não há registros de entrada ou saída
@@ -67,10 +67,10 @@ export default function Transfers() {
         )}
         <h4>Saldo: {balance}</h4>
       </div>
-      <p>
+      <div>
         <Link to="/entry">Nova Entrada</Link> |{' '}
         <Link to="/exit">Nova Saída</Link>
-      </p>
+      </div>
     </div>
   );
 }

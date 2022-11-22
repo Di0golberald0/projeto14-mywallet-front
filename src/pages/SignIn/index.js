@@ -18,7 +18,7 @@ export default function SignIn() {
       setUser(data);
       navigator('/transfers');
     } catch (error) {
-      console.error('Erro ');
+      console.error('Usuário não encontrado');
     }
   }
 

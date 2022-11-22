@@ -10,7 +10,7 @@ export default function App() {
     <UserContext.Provider value={{ user, setUser }}>
          <BrowserRouter>
              <Routes>
-                 <Route path="/sign-in" element={<SignIn />} />
+                 <Route path="/" element={<SignIn />} />
                   <Route path="/sign-up" element={<SignUp />} />
                   <Route path="/transfers" element={<Transfers />} />
                   <Route path="/entry" element={<Entry />} />

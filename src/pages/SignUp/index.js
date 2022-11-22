@@ -11,12 +11,18 @@ export default function SignUp() {
   
   async function handleSubmit(e) {
     e.preventDefault();
-    const body = { name, email, password, confirmPassword };
+    if(password !== confirmPassword) {
+      alert('Senhas precisam ser iguais!');
+      return;
+    }
+
+    const body = { name, email, password };
     try {
+      console.log(body)
       await axios.post('http://localhost:5000/sign-up', body);
-      navigator('/sign-in');
+      navigator('/');
     } catch (error) {
-      console.error('Deu erro ao cadastrar o usuario');
+      console.error('Erro ao cadastrar o usuário');
     }
   }
   
@@ -38,6 +44,7 @@ export default function SignUp() {
           onChange={e => setConfirmPassword(e.target.value)}
           placeholder="Confirme a Senha"
         />
+        <br />
         <button type="submit" onClick={handleSubmit}>
           Cadastrar
         </button>

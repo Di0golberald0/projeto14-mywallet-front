@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "./contexts/UserContext";
 import { SignIn, SignUp, Transfers, Entry, Exit } from "./pages";
 
-export const pathsWithoutHeaderAndMenu = ['/sign-in', '/sign-up'];
-
 export default function App() {
   const [user, setUser] = useState(null);
 

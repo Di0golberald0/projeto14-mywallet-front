@@ -10,7 +10,7 @@ function Transfers() {
     useEffect(() => {
       async function getTransfersList() {
         try {
-          const { data } = await axios.get('http://localhost:5000/transfers', {
+          const { data } = await axios.get('http://localhost:5000/transfer', {
             headers: {
               Authorization: `Bearer ${user.token}`
             }

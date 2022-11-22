@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UserContext from '../contexts/UserContext';
+import UserContext from '../../contexts/UserContext';
 
-function Entry() {
+export default function Exit() {
     const [value, setValue] = useState('');
     const [description, setDescription] = useState('');
   
@@ -14,7 +14,7 @@ function Entry() {
       e.preventDefault();
       const body = {
         description,
-        type: 'entry',
+        type: 'exit',
         value: parseFloat(value)
       };
 
@@ -24,17 +24,17 @@ function Entry() {
 
       try {
         await axios.post('http://localhost:5000/transfer', body, headers);
-        alert('Nova entrada adicionada');
+        alert('Nova saída adicionada');
         navigator('/transfer');
       } catch (error) {
-        alert('Erro ao enviar nova entrada');
+        alert('Erro ao enviar nova saída');
         console.log(error.response);
       }
     }
   
     return (
       <div>
-        <h1>Nova entrada</h1>
+        <h1>Nova saída</h1>
         <form>
           {/* valor */}
           <input
@@ -58,6 +58,4 @@ function Entry() {
         </form>
       </div>
     );
-  }
-  
-  export default Entry;
+}

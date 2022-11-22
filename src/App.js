@@ -7,16 +7,20 @@ export default function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-         <BrowserRouter>
-             <Routes>
-                 <Route path="/" element={<SignIn />} />
-                  <Route path="/sign-up" element={<SignUp />} />
-                  <Route path="/transfers" element={<Transfers />} />
-                  <Route path="/entry" element={<Entry />} />
-                  <Route path="/exit" element={<Exit />} />
+    <div className="app">
+      <UserContext.Provider value={{ user, setUser }}>
+        <header className="header">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<SignIn />} />
+              <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/transfers" element={<Transfers />} />
+              <Route path="/entry" element={<Entry />} />
+              <Route path="/exit" element={<Exit />} />
             </Routes>
           </BrowserRouter>
-    </UserContext.Provider>
+        </header>
+      </UserContext.Provider>
+    </div>
   );
 }

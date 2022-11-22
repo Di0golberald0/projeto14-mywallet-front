@@ -25,7 +25,7 @@ function SignIn() {
   return (
     <div className="">
       <form>
-        <input type="text" onChange={e => setEmail(e.target.value)} placeholder="Email" />
+        <input type="text" onChange={e => setEmail(e.target.value)} placeholder="E-mail" />
         <br />
         <input
           type="password"

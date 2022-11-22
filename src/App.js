@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { UserProvider } from "./contexts/UserContext";
+import UserContext from "./contexts/UserContext";
 import { SignIn, SignUp, Transfers, Entry, Exit } from "./pages";
 
 export const pathsWithoutHeaderAndMenu = ['/sign-in', '/sign-up'];
 
 export default function App() {
   return (
-    <UserProvider>
+    <UserContext.Provider value={{ user, setUser }}>
          <BrowserRouter>
              <Routes>
                  <Route path="/sign-in" element={<SignIn />} />
@@ -16,6 +16,6 @@ export default function App() {
                   <Route path="/exit" element={<Exit />} />
             </Routes>
           </BrowserRouter>
-    </UserProvider>
+    </UserContext.Provider>
   );
 }
